@@ -5,8 +5,8 @@ import functools
 def add_status_tag(func):
     @functools.wraps(func)
     def wrapper(*args, **kwargs):
-        result: str = None
-        try: 
+        result = None
+        try:
             result = f"[SUCCESS] {func(*args, **kwargs)}"
         except Exception as e:
             result = "[FAILURE]"
@@ -47,14 +47,14 @@ class SuperManager(TimeManager, MathManager):
     def get_full_report(self, a, b):
         result = self.divide(a, b)
         time = self.format_current_time()
+        report = {
+            'result': result,
+            'time': time,
+            'utility_version': self.version
+        }
         if "SUCCESS" in result:
             SuperManager._call_successful_count += 1
-        return {
-            "time": time,
-            "result": result
-        }
-    
+        return report
+
     def get_successful_reports(self):
-        return {
-            "counts": SuperManager._call_successful_count
-        }
+        return {'successful_reports': SuperManager._call_successful_count}
