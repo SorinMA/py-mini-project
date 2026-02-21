@@ -42,10 +42,19 @@ class MathManager(metaclass=SingletonMeta):
         return float(a) / float(b)
     
 class SuperManager(TimeManager, MathManager):
+    _call_successful_count = 0
+
     def get_full_report(self, a, b):
         result = self.divide(a, b)
         time = self.format_current_time()
+        if "SUCCESS" in result:
+            SuperManager._call_successful_count += 1
         return {
             "time": time,
             "result": result
+        }
+    
+    def get_successful_reports(self):
+        return {
+            "counts": SuperManager._call_successful_count
         }

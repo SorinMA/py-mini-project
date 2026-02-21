@@ -27,3 +27,8 @@ def calculate():
     manager = SuperManager()
     report = manager.get_full_report(a, b)
     return report
+
+@main.route('/reports-stats')
+def reports_stats():
+    manager = SuperManager()
+    return manager.get_successful_reports()
