@@ -23,6 +23,5 @@ A minimal Flask project for reacclimating with Python and Flask. Provides time u
 Run tests with pytest.
 
 ## Notes
-- Handles division by zero gracefully.
 - Uses Singleton pattern for managers.
 - All responses are JSON.
