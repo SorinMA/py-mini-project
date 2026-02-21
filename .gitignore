@@ -1,0 +1,23 @@
+# Python bytecode (compiled files)
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environments (DO NOT COMMIT THESE)
+venv/
+env/
+ENV/
+.venv/
+
+# Environment variables / Secrets
+.env
+.flaskenv
+instance/
+
+# IDE Settings
+.vscode/
+.idea/
+
+# OS generated files
+.DS_Store
+Thumbs.db
